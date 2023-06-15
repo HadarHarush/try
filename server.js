@@ -1,26 +1,27 @@
-require('dotenv').config({ path: './config.env' });
+require("dotenv").config({ path: "./config.env" });
 //added something
+//nisim added somthing
 
-const express = require('express');
-const mongoose = require('mongoose');
-const path = require('path');
+const express = require("express");
+const mongoose = require("mongoose");
+const path = require("path");
 
-const userRouter = require('./routers/user-router');
+const userRouter = require("./routers/user-router");
 
 const app = express();
 
 // Express App Config
-app.use(express.json({ limit: '50mb' }));
+app.use(express.json({ limit: "50mb" }));
 
-console.log('process.env.DB_URL:', process.env.DB_URL);
+console.log("process.env.DB_URL:", process.env.DB_URL);
 
 // mongoose.connect(process.env.DB_URL, {});
 
 // routes
-app.use('/api/auth', userRouter);
+app.use("/api/auth", userRouter);
 
-app.get('/**', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'index.html'));
+app.get("/**", (req, res) => {
+  res.sendFile(path.join(__dirname, "public", "index.html"));
 });
 
 const port = process.env.PORT || 3030;
